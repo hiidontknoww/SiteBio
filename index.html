@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
 <title>Liens</title>
-
 <style>
 * {
     box-sizing: border-box;
@@ -15,7 +14,6 @@
     user-select: none;
     -webkit-touch-callout: none;
 }
-
 html,
 body {
     width: 100%;
@@ -26,29 +24,24 @@ body {
     background: #ffffff;
     color: #111111;
 }
-
 html {
     position: fixed;
     inset: 0;
     touch-action: none;
 }
-
 body {
     position: fixed;
     inset: 0;
     padding:
         max(72px, env(safe-area-inset-top) + 48px)
         max(14px, env(safe-area-inset-right))
-        max(76px, env(safe-area-inset-bottom) + 42px)
+        max(92px, env(safe-area-inset-bottom) + 58px)
         max(14px, env(safe-area-inset-left));
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
-
     background: #ffffff;
     color: #111111;
-
     font-family:
         Inter,
         -apple-system,
@@ -58,214 +51,161 @@ body {
         "Segoe UI",
         Arial,
         sans-serif;
-
     -webkit-font-smoothing: antialiased;
     touch-action: none;
 }
-
 .wrap {
     width: min(100%, 460px);
 }
-
 .links {
     display: flex;
     flex-direction: column;
     gap: clamp(70px, 13vh, 120px);
 }
-
 .card {
     width: 100%;
     min-height: 47px;
-
     display: flex;
     align-items: center;
     gap: 10px;
-
     padding: 9px 12px;
-
     border: 1px solid #dedede;
     border-radius: 11px;
-
     background: #ffffff;
     color: #111111;
-
     text-decoration: none;
     box-shadow: none;
-
     -webkit-tap-highlight-color: transparent;
     -webkit-user-drag: none;
     touch-action: manipulation;
-
     transition:
         border-color .15s ease,
         background .15s ease;
 }
-
 .card:hover,
 .card:active {
     border-color: #cfcfcf;
     background: #fafafa;
 }
-
 .card:focus,
 .card:focus-visible {
     outline: none;
 }
-
 .ic {
     width: 22px;
     height: 22px;
     flex: 0 0 22px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     color: #111111;
 }
-
 .ic svg {
     width: 16px;
     height: 16px;
     display: block;
 }
-
 .ctext {
     min-width: 0;
     flex: 1;
-
     display: flex;
     align-items: center;
 }
-
 .ctitle {
     min-width: 0;
-
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
     font-size: 11.5px;
     font-weight: 600;
     letter-spacing: .05px;
-
     color: #111111;
 }
-
 .csub {
     display: none;
 }
-
 .hosting {
     position: fixed;
-
     left: 50%;
-    bottom: max(10px, env(safe-area-inset-bottom) + 5px);
-
+    bottom: max(3px, env(safe-area-inset-bottom) - 2px);
     transform: translateX(-50%);
-
     width: max-content;
     max-width: calc(100vw - 24px);
-
     padding: 6px 9px;
-
     border: 1px solid #e1e1e1;
     border-radius: 999px;
-
     background: #ffffff;
     color: #777777;
-
     font-size: 7px;
     font-weight: 500;
     letter-spacing: .1px;
-
     text-align: center;
     white-space: nowrap;
-
     box-shadow: none;
-
     -webkit-user-select: none;
     user-select: none;
     touch-action: none;
 }
-
 @media (max-width: 430px) {
-
     body {
         padding:
             max(64px, env(safe-area-inset-top) + 42px)
             max(13px, env(safe-area-inset-right))
-            max(70px, env(safe-area-inset-bottom) + 38px)
+            max(86px, env(safe-area-inset-bottom) + 50px)
             max(13px, env(safe-area-inset-left));
     }
-
     .wrap {
         width: 100%;
     }
-
     .links {
         gap: clamp(65px, 12vh, 105px);
     }
-
     .card {
         min-height: 45px;
         padding: 8px 11px;
         border-radius: 10px;
     }
-
     .ic {
         width: 21px;
         height: 21px;
         flex-basis: 21px;
     }
-
     .ic svg {
         width: 15px;
         height: 15px;
     }
-
     .ctitle {
         font-size: 11px;
     }
-
     .hosting {
         font-size: 6.8px;
+        bottom: max(2px, env(safe-area-inset-bottom) - 2px);
     }
 }
-
 @media (max-width: 360px) {
-
     body {
         padding-top:
             max(58px, env(safe-area-inset-top) + 38px);
     }
-
     .links {
         gap: clamp(55px, 11vh, 90px);
     }
-
     .card {
         min-height: 43px;
         padding: 8px 10px;
     }
-
     .ctitle {
         font-size: 10.5px;
     }
-
     .hosting {
         font-size: 6.5px;
     }
 }
 </style>
 </head>
-
 <body>
-
 <main class="wrap">
-
 <nav class="links" aria-label="Liens">
-
     <!-- Société d’investissement -->
     <a
         class="card"
@@ -288,15 +228,12 @@ body {
                 <line x1="4.2" y1="17.5" x2="19.8" y2="17.5"></line>
             </svg>
         </span>
-
         <span class="ctext">
             <span class="ctitle">
                 Société d’investissement privée
             </span>
         </span>
     </a>
-
-
     <!-- Agence de mannequins -->
     <a
         class="card"
@@ -321,13 +258,11 @@ body {
                     height="19"
                     rx="5.5"
                 ></rect>
-
                 <circle
                     cx="12"
                     cy="12"
                     r="4.4"
                 ></circle>
-
                 <circle
                     cx="17.7"
                     cy="6.3"
@@ -337,15 +272,12 @@ body {
                 ></circle>
             </svg>
         </span>
-
         <span class="ctext">
             <span class="ctitle">
                 Agence de mannequins
             </span>
         </span>
     </a>
-
-
     <!-- Organisation politique -->
     <a
         class="card"
@@ -370,13 +302,11 @@ body {
                     height="19"
                     rx="5.5"
                 ></rect>
-
                 <circle
                     cx="12"
                     cy="12"
                     r="4.4"
                 ></circle>
-
                 <circle
                     cx="17.7"
                     cy="6.3"
@@ -386,16 +316,13 @@ body {
                 ></circle>
             </svg>
         </span>
-
         <span class="ctext">
             <span class="ctitle">
                 Organisation politique
             </span>
         </span>
     </a>
-
-
-    <!-- Compte personnel -->
+    <!-- Compte personnel Instagram -->
     <a
         class="card"
         href="https://www.instagram.com/vladimirmoulu"
@@ -419,13 +346,11 @@ body {
                     height="19"
                     rx="5.5"
                 ></rect>
-
                 <circle
                     cx="12"
                     cy="12"
                     r="4.4"
                 ></circle>
-
                 <circle
                     cx="17.7"
                     cy="6.3"
@@ -435,21 +360,44 @@ body {
                 ></circle>
             </svg>
         </span>
-
         <span class="ctext">
             <span class="ctitle">
                 Compte personnel
             </span>
         </span>
     </a>
-
+    <!-- Compte personnel TikTok -->
+    <a
+        class="card"
+        href="https://www.tiktok.com/@vsrfi"
+        target="_blank"
+        rel="noreferrer"
+        data-link="Compte personnel TikTok"
+    >
+        <span class="ic">
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#111111"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M14.5 4.5v10.1a4.4 4.4 0 1 1-4.4-4.4"></path>
+                <path d="M14.5 4.5c.5 2.2 1.9 3.7 4.1 4.1"></path>
+                <path d="M14.5 4.5h4.1"></path>
+            </svg>
+        </span>
+        <span class="ctext">
+            <span class="ctitle">
+                Compte personnel TikTok
+            </span>
+        </span>
+    </a>
 </nav>
-
 </main>
-
 <div class="hosting" role="note">
     Serveurs du site hébergés à Moscou, Russie
 </div>
-
 </body>
 </html>
