@@ -7,176 +7,206 @@
         content="width=device-width, initial-scale=1, viewport-fit=cover"
     >
     <meta name="theme-color" content="#ffffff">
-
     <title>vladimir.lat</title>
-
     <style>
+        /* =========================
+           RESET
+        ========================== */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         html,
         body {
             width: 100%;
             min-height: 100%;
             background: #ffffff;
-            color: #111111;
+            color: #0d0d0d;
         }
-
         html {
             -webkit-text-size-adjust: 100%;
         }
-
         body {
             min-height: 100dvh;
-
             display: flex;
             justify-content: center;
-            align-items: center;
-
             padding:
                 max(24px, env(safe-area-inset-top))
                 max(16px, env(safe-area-inset-right))
-                max(24px, env(safe-area-inset-bottom))
+                max(42px, env(safe-area-inset-bottom))
                 max(16px, env(safe-area-inset-left));
-
             font-family:
-                Inter,
                 -apple-system,
                 BlinkMacSystemFont,
-                "SF Pro Text",
                 "SF Pro Display",
-                "Segoe UI",
+                "SF Pro Text",
+                Inter,
+                "Helvetica Neue",
                 Helvetica,
                 Arial,
                 sans-serif;
-
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
-
-        .wrap {
+        /* =========================
+           PAGE
+        ========================== */
+        .page {
             width: 100%;
             max-width: 520px;
-        }
-
-        .links {
-            width: 100%;
-
+            min-height: calc(
+                100dvh
+                - max(24px, env(safe-area-inset-top))
+                - max(42px, env(safe-area-inset-bottom))
+            );
             display: flex;
             flex-direction: column;
-
-            gap: 14px;
         }
-
+        /* =========================
+           LIENS
+        ========================== */
+        .links {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: clamp(28px, 4.2vh, 48px);
+            padding: 30px 0 50px;
+        }
+        /* =========================
+           CARTE
+        ========================== */
         .card {
             width: 100%;
-            min-height: 64px;
-
+            min-height: 72px;
             display: flex;
             align-items: center;
-
-            padding: 0 20px;
-
-            border: 1px solid #e5e5e5;
-            border-radius: 14px;
-
+            padding: 10px 14px;
+            border: 1px solid #e4e4e4;
+            border-radius: 17px;
             background: #ffffff;
-            color: #111111;
-
+            color: #0b0b0b;
             text-decoration: none;
-
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.015),
+                0 7px 24px rgba(0, 0, 0, 0.018);
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
-
             transition:
-                background-color 120ms ease,
-                border-color 120ms ease,
-                transform 120ms ease;
+                transform 150ms ease,
+                border-color 150ms ease,
+                background-color 150ms ease,
+                box-shadow 150ms ease;
         }
-
         .card:hover {
-            background: #fafafa;
             border-color: #d8d8d8;
+            background: #fdfdfd;
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.018),
+                0 9px 28px rgba(0, 0, 0, 0.025);
         }
-
         .card:active {
-            background: #f7f7f7;
-            border-color: #d3d3d3;
-            transform: scale(0.992);
+            transform: scale(0.988);
+            background: #fafafa;
+            border-color: #d2d2d2;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.015),
+                0 4px 14px rgba(0, 0, 0, 0.018);
         }
-
+        .card:focus {
+            outline: none;
+        }
         .card:focus-visible {
             outline: 2px solid #111111;
             outline-offset: 3px;
         }
-
-        .icon {
-            width: 24px;
-            height: 24px;
-
-            flex: 0 0 24px;
-
+        /* =========================
+           ICÔNES
+        ========================== */
+        .icon-box {
+            width: 46px;
+            height: 46px;
+            flex: 0 0 46px;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            margin-right: 18px;
+            border-radius: 13px;
+            background: #f5f5f5;
+            color: #080808;
         }
-
-        .icon svg {
-            width: 22px;
-            height: 22px;
+        .icon-box svg {
+            width: 24px;
+            height: 24px;
             display: block;
         }
-
+        /* =========================
+           TEXTE
+        ========================== */
         .label {
             min-width: 0;
             flex: 1;
-
+            margin-left: 18px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-
-            font-size: 15px;
+            color: #0b0b0b;
+            font-size: 15.5px;
             line-height: 1.2;
-            font-weight: 500;
-            letter-spacing: -0.1px;
-
-            color: #111111;
+            font-weight: 590;
+            letter-spacing: -0.25px;
         }
-
-        .arrow {
-            width: 20px;
-            height: 20px;
-
-            flex: 0 0 20px;
-
+        /* =========================
+           FLÈCHE
+        ========================== */
+        .arrow-box {
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            margin-left: 16px;
-
-            color: #111111;
+            margin-left: 12px;
+            border-radius: 50%;
+            background: #f6f6f6;
+            color: #0a0a0a;
+            transition:
+                transform 150ms ease,
+                background-color 150ms ease;
         }
-
-        .arrow svg {
-            width: 17px;
-            height: 17px;
+        .arrow-box svg {
+            width: 19px;
+            height: 19px;
             display: block;
         }
-
-        /*
-         * Petite séparation visuelle entre
-         * les projets et les comptes personnels.
-         */
-        .card.social-first {
-            margin-top: 18px;
+        .card:hover .arrow-box {
+            background: #f0f0f0;
+            transform: translate(1px, -1px);
         }
-
+        .card:active .arrow-box {
+            transform: translate(0, 0);
+        }
+        /* =========================
+           FOOTER
+        ========================== */
+        .hosting {
+            width: 100%;
+            padding-bottom:
+                max(2px, env(safe-area-inset-bottom));
+            color: #8a8a8a;
+            font-size: 9px;
+            line-height: 1.4;
+            font-weight: 450;
+            letter-spacing: 0.05px;
+            text-align: center;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        /* =========================
+           MOBILE
+        ========================== */
         @media (max-width: 430px) {
             body {
                 padding-left:
@@ -184,92 +214,148 @@
                 padding-right:
                     max(16px, env(safe-area-inset-right));
             }
-
-            .wrap {
+            .page {
                 max-width: 100%;
             }
-
+            .links {
+                gap: clamp(26px, 4vh, 40px);
+                padding-top: 26px;
+                padding-bottom: 42px;
+            }
             .card {
-                min-height: 60px;
-                padding: 0 18px;
-                border-radius: 13px;
+                min-height: 70px;
+                padding: 10px 13px;
+                border-radius: 16px;
             }
-
-            .icon {
-                width: 22px;
-                height: 22px;
-                flex-basis: 22px;
-                margin-right: 16px;
+            .icon-box {
+                width: 44px;
+                height: 44px;
+                flex-basis: 44px;
+                border-radius: 12px;
             }
-
-            .icon svg {
+            .icon-box svg {
+                width: 23px;
+                height: 23px;
+            }
+            .label {
+                margin-left: 16px;
+                font-size: 15px;
+                letter-spacing: -0.22px;
+            }
+            .arrow-box {
+                width: 40px;
+                height: 40px;
+                flex-basis: 40px;
+                margin-left: 10px;
+            }
+            .arrow-box svg {
+                width: 18px;
+                height: 18px;
+            }
+            .hosting {
+                font-size: 8px;
+            }
+        }
+        /* =========================
+           PETITS ÉCRANS
+        ========================== */
+        @media (max-width: 360px) {
+            .links {
+                gap: 22px;
+            }
+            .card {
+                min-height: 66px;
+                padding: 9px 11px;
+            }
+            .icon-box {
+                width: 40px;
+                height: 40px;
+                flex-basis: 40px;
+                border-radius: 11px;
+            }
+            .icon-box svg {
                 width: 21px;
                 height: 21px;
             }
-
             .label {
-                font-size: 14.5px;
+                margin-left: 13px;
+                font-size: 13.5px;
             }
-
-            .arrow {
-                margin-left: 12px;
+            .arrow-box {
+                width: 36px;
+                height: 36px;
+                flex-basis: 36px;
+                margin-left: 8px;
             }
-
-            .card.social-first {
-                margin-top: 16px;
+            .arrow-box svg {
+                width: 17px;
+                height: 17px;
+            }
+            .hosting {
+                font-size: 7.5px;
             }
         }
-
-        @media (max-width: 350px) {
+        /* =========================
+           ÉCRANS PEU HAUTS
+        ========================== */
+        @media (max-height: 700px) {
+            .links {
+                gap: 18px;
+                padding-top: 20px;
+                padding-bottom: 25px;
+            }
             .card {
-                min-height: 58px;
-                padding: 0 15px;
+                min-height: 62px;
             }
-
-            .icon {
-                margin-right: 13px;
+            .icon-box {
+                width: 40px;
+                height: 40px;
+                flex-basis: 40px;
             }
-
-            .label {
-                font-size: 13.5px;
+            .arrow-box {
+                width: 36px;
+                height: 36px;
+                flex-basis: 36px;
             }
         }
     </style>
 </head>
-
 <body>
-
-    <main class="wrap">
+    <main class="page">
         <nav class="links" aria-label="Liens">
-
-            <!-- Société d’investissement -->
+            <!-- =========================
+                 SOCIÉTÉ D'INVESTISSEMENT
+            ========================== -->
             <a
                 class="card"
                 href="investissement.html"
                 aria-label="Société d’investissement privée"
             >
-                <span class="icon" aria-hidden="true">
+                <span class="icon-box" aria-hidden="true">
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.7"
+                        stroke-width="1.8"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
-                        <circle cx="12" cy="12" r="9.5"></circle>
-                        <ellipse cx="12" cy="12" rx="4" ry="9.5"></ellipse>
-                        <path d="M2.5 12h19"></path>
-                        <path d="M4.2 6.5h15.6"></path>
-                        <path d="M4.2 17.5h15.6"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <ellipse
+                            cx="12"
+                            cy="12"
+                            rx="3.8"
+                            ry="9"
+                        ></ellipse>
+                        <path d="M3 12h18"></path>
+                        <path d="M4.6 7h14.8"></path>
+                        <path d="M4.6 17h14.8"></path>
                     </svg>
                 </span>
-
                 <span class="label">
                     Société d’investissement privée
                 </span>
-
-                <span class="arrow" aria-hidden="true">
+                <span class="arrow-box" aria-hidden="true">
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -283,9 +369,9 @@
                     </svg>
                 </span>
             </a>
-
-
-            <!-- Agence de mannequins -->
+            <!-- =========================
+                 AGENCE DE MANNEQUINS
+            ========================== -->
             <a
                 class="card"
                 href="https://www.instagram.com/16parismanagement"
@@ -293,110 +379,13 @@
                 rel="noopener noreferrer"
                 aria-label="Agence de mannequins"
             >
-                <span class="icon" aria-hidden="true">
+                <span class="icon-box" aria-hidden="true">
+                    <!-- Instagram -->
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M9.5 4.5h5"></path>
-                        <path d="M10.5 4.5V3h3v1.5"></path>
-                        <path d="M9.5 5.5
-                                 C9.5 7 8.5 8 7.5 9.5
-                                 C6.2 11.5 6 14.5 6 20
-                                 H18
-                                 C18 14.5 17.8 11.5 16.5 9.5
-                                 C15.5 8 14.5 7 14.5 5.5"></path>
-                    </svg>
-                </span>
-
-                <span class="label">
-                    Agence de mannequins
-                </span>
-
-                <span class="arrow" aria-hidden="true">
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7h8v8"></path>
-                    </svg>
-                </span>
-            </a>
-
-
-            <!-- Organisation politique -->
-            <a
-                class="card"
-                href="https://www.instagram.com/lesnouveauxperesfondateurs"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Organisation politique"
-            >
-                <span class="icon" aria-hidden="true">
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.7"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M3 9h18"></path>
-                        <path d="M4 9L12 4l8 5"></path>
-
-                        <path d="M5.5 9v8"></path>
-                        <path d="M9.8 9v8"></path>
-                        <path d="M14.2 9v8"></path>
-                        <path d="M18.5 9v8"></path>
-
-                        <path d="M4 17h16"></path>
-                        <path d="M3 20h18"></path>
-                    </svg>
-                </span>
-
-                <span class="label">
-                    Organisation politique
-                </span>
-
-                <span class="arrow" aria-hidden="true">
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7h8v8"></path>
-                    </svg>
-                </span>
-            </a>
-
-
-            <!-- Instagram personnel -->
-            <a
-                class="card social-first"
-                href="https://www.instagram.com/vsljt"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-            >
-                <span class="icon" aria-hidden="true">
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
+                        stroke-width="1.9"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
@@ -407,13 +396,11 @@
                             height="18"
                             rx="5"
                         ></rect>
-
                         <circle
                             cx="12"
                             cy="12"
                             r="4"
                         ></circle>
-
                         <circle
                             cx="17.4"
                             cy="6.6"
@@ -423,12 +410,10 @@
                         ></circle>
                     </svg>
                 </span>
-
                 <span class="label">
-                    Instagram
+                    Agence de mannequins
                 </span>
-
-                <span class="arrow" aria-hidden="true">
+                <span class="arrow-box" aria-hidden="true">
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -442,9 +427,124 @@
                     </svg>
                 </span>
             </a>
-
-
-            <!-- TikTok personnel -->
+            <!-- =========================
+                 ORGANISATION POLITIQUE
+            ========================== -->
+            <a
+                class="card"
+                href="https://www.instagram.com/lesnouveauxperesfondateurs"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Organisation politique"
+            >
+                <span class="icon-box" aria-hidden="true">
+                    <!-- Instagram -->
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect
+                            x="3"
+                            y="3"
+                            width="18"
+                            height="18"
+                            rx="5"
+                        ></rect>
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        ></circle>
+                        <circle
+                            cx="17.4"
+                            cy="6.6"
+                            r="1"
+                            fill="currentColor"
+                            stroke="none"
+                        ></circle>
+                    </svg>
+                </span>
+                <span class="label">
+                    Organisation politique
+                </span>
+                <span class="arrow-box" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7h8v8"></path>
+                    </svg>
+                </span>
+            </a>
+            <!-- =========================
+                 INSTAGRAM PERSONNEL
+            ========================== -->
+            <a
+                class="card"
+                href="https://www.instagram.com/vsljt"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+            >
+                <span class="icon-box" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect
+                            x="3"
+                            y="3"
+                            width="18"
+                            height="18"
+                            rx="5"
+                        ></rect>
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        ></circle>
+                        <circle
+                            cx="17.4"
+                            cy="6.6"
+                            r="1"
+                            fill="currentColor"
+                            stroke="none"
+                        ></circle>
+                    </svg>
+                </span>
+                <span class="label">
+                    Instagram
+                </span>
+                <span class="arrow-box" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7h8v8"></path>
+                    </svg>
+                </span>
+            </a>
+            <!-- =========================
+                 TIKTOK
+            ========================== -->
             <a
                 class="card"
                 href="https://www.tiktok.com/@.xcus"
@@ -452,25 +552,27 @@
                 rel="noopener noreferrer"
                 aria-label="TikTok"
             >
-                <span class="icon" aria-hidden="true">
+                <span class="icon-box" aria-hidden="true">
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.8"
+                        stroke-width="1.9"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
-                        <path d="M14 4v10.2a4.2 4.2 0 1 1-3.8-4.2"></path>
-                        <path d="M14 4c.5 2.4 2 4 4.5 4.5"></path>
+                        <path
+                            d="M14 4v10.2a4.2 4.2 0 1 1-3.8-4.2"
+                        ></path>
+                        <path
+                            d="M14 4c.5 2.4 2 4 4.5 4.5"
+                        ></path>
                     </svg>
                 </span>
-
                 <span class="label">
                     TikTok
                 </span>
-
-                <span class="arrow" aria-hidden="true">
+                <span class="arrow-box" aria-hidden="true">
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -484,9 +586,13 @@
                     </svg>
                 </span>
             </a>
-
         </nav>
+        <!-- =========================
+             HÉBERGEMENT
+        ========================== -->
+        <footer class="hosting">
+            Serveurs du site hébergés à Moscou, Russie
+        </footer>
     </main>
-
 </body>
 </html>
