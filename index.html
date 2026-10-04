@@ -11,7 +11,7 @@
     <style>
         /* =========================
            RESET
-        ========================== */
+        ========================= */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -29,13 +29,6 @@
         }
         body {
             min-height: 100dvh;
-            display: flex;
-            justify-content: center;
-            padding:
-                max(24px, env(safe-area-inset-top))
-                max(16px, env(safe-area-inset-right))
-                max(28px, env(safe-area-inset-bottom))
-                max(16px, env(safe-area-inset-left));
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
@@ -43,56 +36,60 @@
                 "SF Pro Display",
                 Inter,
                 "Helvetica Neue",
+                Helvetica,
                 Arial,
                 sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
+            padding:
+                max(18px, env(safe-area-inset-top))
+                max(16px, env(safe-area-inset-right))
+                max(12px, env(safe-area-inset-bottom))
+                max(16px, env(safe-area-inset-left));
         }
         /* =========================
            PAGE
-        ========================== */
+        ========================= */
         .page {
             width: 100%;
-            max-width: 500px;
+            max-width: 460px;
             min-height: calc(
                 100dvh
-                - max(24px, env(safe-area-inset-top))
-                - max(28px, env(safe-area-inset-bottom))
+                - max(18px, env(safe-area-inset-top))
+                - max(12px, env(safe-area-inset-bottom))
             );
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
         }
         /* =========================
-           ZONE DES LIENS
-        ========================== */
+           LIENS
+        ========================= */
         .links {
             width: 100%;
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /*
-             * Même écart EXACT entre
-             * chacun des 5 boutons.
-             */
-            gap: 30px;
-            padding: 30px 0 42px;
+            /* Même espace entre TOUS les boutons */
+            gap: 24px;
+            padding: 35px 0 55px;
         }
         /* =========================
-           BOUTONS
-        ========================== */
+           BOUTON
+        ========================= */
         .card {
             width: 100%;
-            height: 62px;
-            flex: 0 0 62px;
+            height: 52px;
+            flex: 0 0 52px;
             display: flex;
             align-items: center;
-            padding: 0 18px;
+            padding: 0 16px;
             background: #ffffff;
             color: #000000;
-            border: 1.25px solid #000000;
-            border-radius: 13px;
+            border: 1px solid #000000;
+            border-radius: 11px;
             text-decoration: none;
             box-shadow: none;
             -webkit-tap-highlight-color: transparent;
@@ -107,64 +104,64 @@
             color: #ffffff;
         }
         .card:active {
-            transform: scale(0.99);
+            transform: scale(0.992);
         }
         .card:focus {
             outline: none;
         }
         .card:focus-visible {
             outline: 2px solid #000000;
-            outline-offset: 4px;
+            outline-offset: 3px;
         }
         /* =========================
-           ICÔNE
-        ========================== */
+           ICÔNES
+        ========================= */
         .icon {
-            width: 25px;
-            height: 25px;
-            flex: 0 0 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: currentColor;
-        }
-        .icon svg {
-            width: 23px;
-            height: 23px;
-            display: block;
-        }
-        /* =========================
-           TEXTE
-        ========================== */
-        .label {
-            min-width: 0;
-            flex: 1;
-            margin-left: 20px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            color: currentColor;
-            font-size: 15px;
-            line-height: 1;
-            font-weight: 500;
-            letter-spacing: -0.25px;
-        }
-        /* =========================
-           FLÈCHE
-        ========================== */
-        .arrow {
             width: 22px;
             height: 22px;
             flex: 0 0 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: 14px;
+            color: currentColor;
+        }
+        .icon svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+        /* =========================
+           TEXTE
+        ========================= */
+        .label {
+            min-width: 0;
+            flex: 1;
+            margin-left: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: currentColor;
+            font-size: 13.5px;
+            line-height: 1;
+            font-weight: 500;
+            letter-spacing: -0.15px;
+        }
+        /* =========================
+           FLÈCHE
+        ========================= */
+        .arrow {
+            width: 20px;
+            height: 20px;
+            flex: 0 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 12px;
             color: currentColor;
         }
         .arrow svg {
-            width: 19px;
-            height: 19px;
+            width: 17px;
+            height: 17px;
             display: block;
             transition: transform 120ms ease;
         }
@@ -172,17 +169,18 @@
             transform: translate(1px, -1px);
         }
         /* =========================
-           FOOTER
-        ========================== */
+           HÉBERGEMENT
+        ========================= */
         .hosting {
             width: 100%;
+            flex: 0 0 auto;
             padding-bottom:
                 max(2px, env(safe-area-inset-bottom));
             color: #000000;
-            font-size: 8px;
-            line-height: 1.3;
+            font-size: 7.5px;
+            line-height: 1.2;
             font-weight: 400;
-            letter-spacing: 0.1px;
+            letter-spacing: 0.08px;
             text-align: center;
             white-space: nowrap;
             -webkit-user-select: none;
@@ -190,7 +188,7 @@
         }
         /* =========================
            IPHONE / MOBILE
-        ========================== */
+        ========================= */
         @media (max-width: 430px) {
             body {
                 padding-left:
@@ -202,95 +200,94 @@
                 max-width: 100%;
             }
             .links {
-                gap: 28px;
-                padding-top: 24px;
-                padding-bottom: 38px;
+                gap: 23px;
+                padding-top: 30px;
+                padding-bottom: 48px;
             }
             .card {
-                height: 60px;
-                flex-basis: 60px;
-                padding: 0 17px;
-                border-radius: 12px;
+                height: 50px;
+                flex-basis: 50px;
+                padding: 0 15px;
+                border-radius: 10px;
             }
             .icon {
-                width: 24px;
-                height: 24px;
-                flex-basis: 24px;
+                width: 21px;
+                height: 21px;
+                flex-basis: 21px;
             }
             .icon svg {
-                width: 22px;
-                height: 22px;
+                width: 19px;
+                height: 19px;
             }
             .label {
-                margin-left: 18px;
-                font-size: 14.5px;
+                margin-left: 17px;
+                font-size: 13px;
                 font-weight: 500;
-                letter-spacing: -0.2px;
+                letter-spacing: -0.15px;
             }
             .arrow {
-                width: 20px;
-                height: 20px;
-                flex-basis: 20px;
-                margin-left: 12px;
+                width: 19px;
+                height: 19px;
+                flex-basis: 19px;
+                margin-left: 10px;
             }
             .arrow svg {
-                width: 18px;
-                height: 18px;
-            }
-            .hosting {
-                font-size: 7.5px;
-            }
-        }
-        /* =========================
-           PETITS ÉCRANS
-        ========================== */
-        @media (max-width: 360px) {
-            .links {
-                gap: 23px;
-            }
-            .card {
-                height: 56px;
-                flex-basis: 56px;
-                padding: 0 14px;
-            }
-            .icon {
-                width: 22px;
-                height: 22px;
-                flex-basis: 22px;
-            }
-            .icon svg {
-                width: 20px;
-                height: 20px;
-            }
-            .label {
-                margin-left: 14px;
-                font-size: 13px;
-            }
-            .arrow {
-                margin-left: 8px;
+                width: 16px;
+                height: 16px;
             }
             .hosting {
                 font-size: 7px;
             }
         }
         /* =========================
-           ÉCRANS PEU HAUTS
-        ========================== */
-        @media (max-height: 700px) {
+           PETITS ÉCRANS
+        ========================= */
+        @media (max-width: 360px) {
             .links {
                 gap: 20px;
-                padding-top: 18px;
-                padding-bottom: 24px;
             }
             .card {
-                height: 54px;
-                flex-basis: 54px;
+                height: 47px;
+                flex-basis: 47px;
+                padding: 0 13px;
+            }
+            .icon {
+                width: 20px;
+                height: 20px;
+                flex-basis: 20px;
+            }
+            .icon svg {
+                width: 18px;
+                height: 18px;
+            }
+            .label {
+                margin-left: 14px;
+                font-size: 12px;
+            }
+            .arrow {
+                margin-left: 7px;
+            }
+            .hosting {
+                font-size: 6.5px;
             }
         }
         /* =========================
-           PAS D'EFFET HOVER
-           SUR ÉCRAN TACTILE
-        ========================== */
+           ÉCRANS PEU HAUTS
+        ========================= */
+        @media (max-height: 700px) {
+            .links {
+                gap: 17px;
+                padding-top: 18px;
+                padding-bottom: 25px;
+            }
+            .card {
+                height: 46px;
+                flex-basis: 46px;
+            }
+        }
+        /* =========================
+           TACTILE
+        ========================= */
         @media (hover: none) {
             .card:hover {
                 background: #ffffff;
@@ -306,7 +303,9 @@
 <body>
     <main class="page">
         <nav class="links" aria-label="Liens">
-            <!-- SOCIÉTÉ D'INVESTISSEMENT -->
+            <!-- =====================
+                 INVESTISSEMENT
+            ====================== -->
             <a
                 class="card"
                 href="investissement.html"
@@ -350,7 +349,9 @@
                     </svg>
                 </span>
             </a>
-            <!-- AGENCE DE MANNEQUINS -->
+            <!-- =====================
+                 AGENCE DE MANNEQUINS
+            ====================== -->
             <a
                 class="card"
                 href="https://www.instagram.com/16parismanagement"
@@ -405,7 +406,9 @@
                     </svg>
                 </span>
             </a>
-            <!-- ORGANISATION POLITIQUE -->
+            <!-- =====================
+                 ORGANISATION POLITIQUE
+            ====================== -->
             <a
                 class="card"
                 href="https://www.instagram.com/lesnouveauxperesfondateurs"
@@ -460,7 +463,9 @@
                     </svg>
                 </span>
             </a>
-            <!-- INSTAGRAM -->
+            <!-- =====================
+                 INSTAGRAM
+            ====================== -->
             <a
                 class="card"
                 href="https://www.instagram.com/vsljt"
@@ -515,7 +520,9 @@
                     </svg>
                 </span>
             </a>
-            <!-- TIKTOK -->
+            <!-- =====================
+                 TIKTOK
+            ====================== -->
             <a
                 class="card"
                 href="https://www.tiktok.com/@.xcus"
@@ -558,6 +565,9 @@
                 </span>
             </a>
         </nav>
+        <!-- =========================
+             HÉBERGEMENT
+        ========================== -->
         <footer class="hosting">
             Serveurs du site hébergés à Moscou, Russie
         </footer>
