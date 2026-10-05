@@ -13,17 +13,17 @@ html{-webkit-text-size-adjust:100%;background:#fff}
 body{min-height:100svh;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding: max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
 .page{width:100%;max-width:440px;margin:0 auto}
 .links{min-height:calc(100svh - max(24px,env(safe-area-inset-top)) - max(24px,env(safe-area-inset-bottom)));display:flex;flex-direction:column;justify-content:space-evenly;gap:28px;padding:16px 0}
-.card{min-height:68px;flex-shrink:0;display:flex;align-items:center;gap:18px;padding:18px 21px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:16px;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .3s var(--ease),border-color .3s ease,background-color .3s ease,box-shadow .3s ease;animation:arrive .8s var(--ease) backwards;animation-delay:calc(.08s + var(--order)*.065s)}
-.icon{width:21px;height:21px;flex:0 0 21px;display:grid;place-items:center;color:#4e4e4e}
-.icon svg{width:20px;height:20px;display:block}
-.label{flex:1;min-width:0;font-size:14px;font-weight:500;letter-spacing:-.18px;line-height:1.45}
+.card{min-height:54px;flex-shrink:0;display:flex;align-items:center;gap:16px;padding:13px 18px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .3s var(--ease),border-color .3s ease,background-color .3s ease,box-shadow .3s ease;animation:arrive .8s var(--ease) backwards;animation-delay:calc(.08s + var(--order)*.065s)}
+.icon{width:19px;height:19px;flex:0 0 19px;display:grid;place-items:center;color:#4e4e4e}
+.icon svg{width:18px;height:18px;display:block}
+.label{flex:1;min-width:0;font-size:13px;font-weight:500;letter-spacing:-.18px;line-height:1.45}
 .arrow{width:18px;height:18px;flex:0 0 18px;color:#909090;transition:color .3s ease,transform .3s var(--ease)}
 .arrow svg{width:17px;height:17px;display:block}
 .card:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 .card:active{transform:scale(.985);background:#f6f6f6}
 @media(hover:hover){.card:hover{background:#fafafa;border-color:#c5c5c5;transform:translateY(-2px);box-shadow:0 5px 16px #00000004}.card:hover .arrow{transform:translate(2px,-2px);color:var(--ink)}}
 @keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:360px){body{padding-left:18px;padding-right:18px}.card{padding:16px;gap:14px}.label{font-size:13px}}
+@media(max-width:360px){body{padding-left:18px;padding-right:18px}.card{padding:13px 16px;gap:14px}.label{font-size:13px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
