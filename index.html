@@ -1,315 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover"
-    >
-    <meta name="theme-color" content="#ffffff">
-    <title>vladimir.lat</title>
-    <style>
-        /* =========================
-           RESET
-        ========================= */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-            background: #ffffff;
-            color: #000000;
-        }
-        html {
-            -webkit-text-size-adjust: 100%;
-        }
-        body {
-            min-height: 100dvh;
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "SF Pro Text",
-                "SF Pro Display",
-                Inter,
-                "Helvetica Neue",
-                Helvetica,
-                Arial,
-                sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            padding:
-                max(18px, env(safe-area-inset-top))
-                max(16px, env(safe-area-inset-right))
-                max(12px, env(safe-area-inset-bottom))
-                max(16px, env(safe-area-inset-left));
-        }
-        /* =========================
-           PAGE
-        ========================= */
-        .page {
-            width: 100%;
-            max-width: 460px;
-            min-height: calc(
-                100dvh
-                - max(18px, env(safe-area-inset-top))
-                - max(12px, env(safe-area-inset-bottom))
-            );
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
-        /* =========================
-           LIENS
-        ========================= */
-        .links {
-            width: 100%;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            /* Même espace entre TOUS les boutons */
-            gap: 24px;
-            padding: 35px 0 55px;
-        }
-        /* =========================
-           BOUTON
-        ========================= */
-        .card {
-            width: 100%;
-            height: 52px;
-            flex: 0 0 52px;
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-            background: #ffffff;
-            color: #000000;
-            border: 1px solid #000000;
-            border-radius: 11px;
-            text-decoration: none;
-            box-shadow: none;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            transition:
-                background-color 120ms ease,
-                color 120ms ease,
-                transform 120ms ease;
-        }
-        .card:hover {
-            background: #000000;
-            color: #ffffff;
-        }
-        .card:active {
-            transform: scale(0.992);
-        }
-        .card:focus {
-            outline: none;
-        }
-        .card:focus-visible {
-            outline: 2px solid #000000;
-            outline-offset: 3px;
-        }
-        /* =========================
-           ICÔNES
-        ========================= */
-        .icon {
-            width: 22px;
-            height: 22px;
-            flex: 0 0 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: currentColor;
-        }
-        .icon svg {
-            width: 20px;
-            height: 20px;
-            display: block;
-        }
-        /* =========================
-           TEXTE
-        ========================= */
-        .label {
-            min-width: 0;
-            flex: 1;
-            margin-left: 18px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            color: currentColor;
-            font-size: 13.5px;
-            line-height: 1;
-            font-weight: 500;
-            letter-spacing: -0.15px;
-        }
-        /* =========================
-           FLÈCHE
-        ========================= */
-        .arrow {
-            width: 20px;
-            height: 20px;
-            flex: 0 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 12px;
-            color: currentColor;
-        }
-        .arrow svg {
-            width: 17px;
-            height: 17px;
-            display: block;
-            transition: transform 120ms ease;
-        }
-        .card:hover .arrow svg {
-            transform: translate(1px, -1px);
-        }
-        /* =========================
-           HÉBERGEMENT
-        ========================= */
-        .hosting {
-            width: 100%;
-            flex: 0 0 auto;
-            padding-bottom:
-                max(2px, env(safe-area-inset-bottom));
-            color: #000000;
-            font-size: 7.5px;
-            line-height: 1.2;
-            font-weight: 400;
-            letter-spacing: 0.08px;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        /* =========================
-           IPHONE / MOBILE
-        ========================= */
-        @media (max-width: 430px) {
-            body {
-                padding-left:
-                    max(16px, env(safe-area-inset-left));
-                padding-right:
-                    max(16px, env(safe-area-inset-right));
-            }
-            .page {
-                max-width: 100%;
-            }
-            .links {
-                gap: 23px;
-                padding-top: 30px;
-                padding-bottom: 48px;
-            }
-            .card {
-                height: 50px;
-                flex-basis: 50px;
-                padding: 0 15px;
-                border-radius: 10px;
-            }
-            .icon {
-                width: 21px;
-                height: 21px;
-                flex-basis: 21px;
-            }
-            .icon svg {
-                width: 19px;
-                height: 19px;
-            }
-            .label {
-                margin-left: 17px;
-                font-size: 13px;
-                font-weight: 500;
-                letter-spacing: -0.15px;
-            }
-            .arrow {
-                width: 19px;
-                height: 19px;
-                flex-basis: 19px;
-                margin-left: 10px;
-            }
-            .arrow svg {
-                width: 16px;
-                height: 16px;
-            }
-            .hosting {
-                font-size: 7px;
-            }
-        }
-        /* =========================
-           PETITS ÉCRANS
-        ========================= */
-        @media (max-width: 360px) {
-            .links {
-                gap: 20px;
-            }
-            .card {
-                height: 47px;
-                flex-basis: 47px;
-                padding: 0 13px;
-            }
-            .icon {
-                width: 20px;
-                height: 20px;
-                flex-basis: 20px;
-            }
-            .icon svg {
-                width: 18px;
-                height: 18px;
-            }
-            .label {
-                margin-left: 14px;
-                font-size: 12px;
-            }
-            .arrow {
-                margin-left: 7px;
-            }
-            .hosting {
-                font-size: 6.5px;
-            }
-        }
-        /* =========================
-           ÉCRANS PEU HAUTS
-        ========================= */
-        @media (max-height: 700px) {
-            .links {
-                gap: 17px;
-                padding-top: 18px;
-                padding-bottom: 25px;
-            }
-            .card {
-                height: 46px;
-                flex-basis: 46px;
-            }
-        }
-        /* =========================
-           TACTILE
-        ========================= */
-        @media (hover: none) {
-            .card:hover {
-                background: #ffffff;
-                color: #000000;
-            }
-            .card:active {
-                background: #000000;
-                color: #ffffff;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Les projets et réseaux de Vladimir. Vekta Investment, agence de mannequins, organisation politique, Instagram et TikTok.">
+<title>Vladimir — Liens & projets</title>
+<style>
+:root{color-scheme:light;--ink:#202020;--muted:#767676;--line:#e7e7e7;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:#fff}
+body{min-height:100svh;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding: max(32px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
+.page{width:100%;max-width:440px;min-height:calc(100svh - 64px);margin:0 auto;display:flex;flex-direction:column;justify-content:center}
+.content{padding:64px 0 52px}
+.identity{margin-bottom:38px;animation:arrive .8s var(--ease) backwards}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}
+h1{font-size:42px;font-weight:500;letter-spacing:-1.8px;line-height:1.12}
+.subtitle{font-size:13px;line-height:1.6;color:var(--muted);margin-top:12px}
+.links{display:flex;flex-direction:column;gap:14px}
+.card{min-height:68px;display:flex;align-items:center;gap:18px;padding:18px 21px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:16px;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .3s var(--ease),border-color .3s ease,background-color .3s ease,box-shadow .3s ease;animation:arrive .8s var(--ease) backwards;animation-delay:calc(.08s + var(--order)*.065s)}
+.icon{width:21px;height:21px;flex:0 0 21px;display:grid;place-items:center;color:#4e4e4e}
+.icon svg{width:20px;height:20px;display:block}
+.label{flex:1;min-width:0;font-size:14px;font-weight:500;letter-spacing:-.18px;line-height:1.45}
+.arrow{width:18px;height:18px;flex:0 0 18px;color:#909090;transition:color .3s ease,transform .3s var(--ease)}
+.arrow svg{width:17px;height:17px;display:block}
+.card:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.card:active{transform:scale(.985);background:#f6f6f6}
+.hosting{text-align:center;font-size:10px;line-height:1.7;color:var(--muted);padding:25px 0 4px;border-top:1px solid #f0f0f0;animation:arrive .8s var(--ease) .4s backwards}
+@media(hover:hover){.card:hover{background:#fafafa;border-color:#c5c5c5;transform:translateY(-2px);box-shadow:0 5px 16px #00000004}.card:hover .arrow{transform:translate(2px,-2px);color:var(--ink)}}
+@keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:760px){.content{padding-top:72px;padding-bottom:60px}h1{font-size:46px}.identity{margin-bottom:42px}}
+@media(max-width:360px){body{padding-left:18px;padding-right:18px}.card{padding:16px;gap:14px}.label{font-size:13px}h1{font-size:38px}}
+@media(max-height:740px){.content{padding-top:24px;padding-bottom:32px}.identity{margin-bottom:28px}.card{min-height:62px}.links{gap:12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-    <main class="page">
-        <nav class="links" aria-label="Liens">
-            <!-- =====================
-                 INVESTISSEMENT
-            ====================== -->
-            <a
-                class="card"
+<main class="page">
+<div class="content">
+<header class="identity">
+<p class="eyebrow">Liens & projets</p>
+<h1>Vladimir<span style="color:#aaa">.</span></h1>
+<p class="subtitle">Mes projets. Mes réseaux. Un seul endroit.</p>
+</header>
+<nav class="links" aria-label="Projets et réseaux de Vladimir">
+<a
+                class="card" style="--order:0"
                 href="investissement.html"
-                aria-label="Société d’investissement privée"
+                aria-label="Vekta Investment"
             >
                 <span class="icon" aria-hidden="true">
                     <svg
@@ -333,7 +71,7 @@
                     </svg>
                 </span>
                 <span class="label">
-                    Société d’investissement privée
+                    Vekta Investment
                 </span>
                 <span class="arrow" aria-hidden="true">
                     <svg
@@ -349,11 +87,8 @@
                     </svg>
                 </span>
             </a>
-            <!-- =====================
-                 AGENCE DE MANNEQUINS
-            ====================== -->
-            <a
-                class="card"
+<a
+                class="card" style="--order:1"
                 href="https://www.instagram.com/16parismanagement"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -406,11 +141,8 @@
                     </svg>
                 </span>
             </a>
-            <!-- =====================
-                 ORGANISATION POLITIQUE
-            ====================== -->
-            <a
-                class="card"
+<a
+                class="card" style="--order:2"
                 href="https://www.instagram.com/lesnouveauxperesfondateurs"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -463,11 +195,8 @@
                     </svg>
                 </span>
             </a>
-            <!-- =====================
-                 INSTAGRAM
-            ====================== -->
-            <a
-                class="card"
+<a
+                class="card" style="--order:3"
                 href="https://www.instagram.com/vsljt"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -520,12 +249,9 @@
                     </svg>
                 </span>
             </a>
-            <!-- =====================
-                 TIKTOK
-            ====================== -->
-            <a
-                class="card"
-                href="https://www.tiktok.com/@.xcus"
+<a
+                class="card" style="--order:4"
+                href="https://www.tiktok.com/@vsljt"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
@@ -564,13 +290,10 @@
                     </svg>
                 </span>
             </a>
-        </nav>
-        <!-- =========================
-             HÉBERGEMENT
-        ========================== -->
-        <footer class="hosting">
-            Serveurs du site hébergés à Moscou, Russie
-        </footer>
-    </main>
+</nav>
+</div>
+<footer class="hosting">Serveurs du site hébergés à Moscou, Russie</footer>
+</main>
 </body>
 </html>
+
