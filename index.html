@@ -4,21 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Les projets et réseaux de Vladimir. Vekta Investment, agence de mannequins, organisation politique, Instagram et TikTok.">
-<title>Vladimir — Liens & projets</title>
+<meta name="description" content="Vekta Investment, agence de mannequins, organisation politique, Instagram et TikTok.">
+<title>Liens</title>
 <style>
 :root{color-scheme:light;--ink:#202020;--muted:#767676;--line:#e7e7e7;--ease:cubic-bezier(.22,1,.36,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;background:#fff}
-body{min-height:100svh;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding: max(32px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
-.page{width:100%;max-width:440px;min-height:calc(100svh - 64px);margin:0 auto;display:flex;flex-direction:column;justify-content:center}
-.content{padding:64px 0 52px}
-.identity{margin-bottom:38px;animation:arrive .8s var(--ease) backwards}
-.eyebrow{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}
-h1{font-size:42px;font-weight:500;letter-spacing:-1.8px;line-height:1.12}
-.subtitle{font-size:13px;line-height:1.6;color:var(--muted);margin-top:12px}
-.links{display:flex;flex-direction:column;gap:14px}
-.card{min-height:68px;display:flex;align-items:center;gap:18px;padding:18px 21px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:16px;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .3s var(--ease),border-color .3s ease,background-color .3s ease,box-shadow .3s ease;animation:arrive .8s var(--ease) backwards;animation-delay:calc(.08s + var(--order)*.065s)}
+body{min-height:100svh;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding: max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
+.page{width:100%;max-width:440px;margin:0 auto}
+.links{min-height:calc(100svh - max(24px,env(safe-area-inset-top)) - max(24px,env(safe-area-inset-bottom)));display:flex;flex-direction:column;justify-content:space-evenly;gap:28px;padding:16px 0}
+.card{min-height:68px;flex-shrink:0;display:flex;align-items:center;gap:18px;padding:18px 21px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:16px;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .3s var(--ease),border-color .3s ease,background-color .3s ease,box-shadow .3s ease;animation:arrive .8s var(--ease) backwards;animation-delay:calc(.08s + var(--order)*.065s)}
 .icon{width:21px;height:21px;flex:0 0 21px;display:grid;place-items:center;color:#4e4e4e}
 .icon svg{width:20px;height:20px;display:block}
 .label{flex:1;min-width:0;font-size:14px;font-weight:500;letter-spacing:-.18px;line-height:1.45}
@@ -26,24 +21,15 @@ h1{font-size:42px;font-weight:500;letter-spacing:-1.8px;line-height:1.12}
 .arrow svg{width:17px;height:17px;display:block}
 .card:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 .card:active{transform:scale(.985);background:#f6f6f6}
-.hosting{text-align:center;font-size:10px;line-height:1.7;color:var(--muted);padding:25px 0 4px;border-top:1px solid #f0f0f0;animation:arrive .8s var(--ease) .4s backwards}
 @media(hover:hover){.card:hover{background:#fafafa;border-color:#c5c5c5;transform:translateY(-2px);box-shadow:0 5px 16px #00000004}.card:hover .arrow{transform:translate(2px,-2px);color:var(--ink)}}
 @keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@media(min-width:760px){.content{padding-top:72px;padding-bottom:60px}h1{font-size:46px}.identity{margin-bottom:42px}}
-@media(max-width:360px){body{padding-left:18px;padding-right:18px}.card{padding:16px;gap:14px}.label{font-size:13px}h1{font-size:38px}}
-@media(max-height:740px){.content{padding-top:24px;padding-bottom:32px}.identity{margin-bottom:28px}.card{min-height:62px}.links{gap:12px}}
+@media(max-width:360px){body{padding-left:18px;padding-right:18px}.card{padding:16px;gap:14px}.label{font-size:13px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <main class="page">
-<div class="content">
-<header class="identity">
-<p class="eyebrow">Liens & projets</p>
-<h1>Vladimir<span style="color:#aaa">.</span></h1>
-<p class="subtitle">Mes projets. Mes réseaux. Un seul endroit.</p>
-</header>
-<nav class="links" aria-label="Projets et réseaux de Vladimir">
+<nav class="links" aria-label="Liens">
 <a
                 class="card" style="--order:0"
                 href="investissement.html"
@@ -291,8 +277,6 @@ h1{font-size:42px;font-weight:500;letter-spacing:-1.8px;line-height:1.12}
                 </span>
             </a>
 </nav>
-</div>
-<footer class="hosting">Serveurs du site hébergés à Moscou, Russie</footer>
 </main>
 </body>
 </html>
