@@ -121,6 +121,28 @@ body {
   }
 }
 
+/* Staggered entrance; independent translation keeps hover interactions smooth. */
+.card {
+  --entrance-delay:80ms;
+  animation:
+    card-reveal 800ms var(--ease) var(--entrance-delay) both,
+    card-float 6s ease-in-out calc(var(--entrance-delay) + 800ms) infinite;
+}
+
+.card:nth-child(2) { --entrance-delay:240ms; }
+.card:nth-child(3) { --entrance-delay:400ms; }
+.card:nth-child(4) { --entrance-delay:560ms; }
+
+@keyframes card-reveal {
+  from { opacity:0; scale:.985; translate:0 14px; }
+  to { opacity:1; scale:1; translate:0 0; }
+}
+
+@keyframes card-float {
+  0%,100% { translate:0 0; }
+  50% { translate:0 -3px; }
+}
+
 /* Compact screens and accessibility */
 @media(max-width:360px) {
   body {
