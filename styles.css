@@ -177,13 +177,13 @@ body.is-leaving .card:nth-child(3) { --exit-delay: 90ms; }
 body.is-leaving .card:nth-child(4) { --exit-delay: 135ms; }
 body.is-leaving .card:nth-child(5) { --exit-delay: 180ms; }
 
-.card.is-clicked {
+body.is-leaving .card.is-clicked {
   animation: card-click 420ms var(--ease) both;
 }
 
 @keyframes card-float {
   0%, 100% { translate: 0 0; }
-  50% { translate: 0 -3px; }
+  50% { translate: 0 -5px; }
 }
 
 @media (max-width: 360px) {
