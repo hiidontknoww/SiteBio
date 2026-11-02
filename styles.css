@@ -52,7 +52,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   gap: clamp(16px, 3.2svh, 30px);
-  padding: 16px 0;
+  padding: clamp(28px, 4.5svh, 38px) 0;
 }
 
 .card {
