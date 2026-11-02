@@ -30,5 +30,29 @@
     </a>
   </nav>
 </main>
+<script>
+(() => {
+  const body = document.body;
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.add("is-clicked");
+      body.classList.add("is-leaving");
+    });
+  });
+
+  const restorePage = () => {
+    body.classList.remove("is-leaving");
+    cards.forEach((card) => card.classList.remove("is-clicked"));
+  };
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) restorePage();
+  });
+  window.addEventListener("pageshow", restorePage);
+  window.addEventListener("pagehide", () => body.classList.add("is-leaving"));
+})();
+</script>
 </body>
 </html>
