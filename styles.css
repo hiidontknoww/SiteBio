@@ -46,8 +46,8 @@ body {
   min-height: calc(100svh - max(24px, env(safe-area-inset-top)) - max(24px, env(safe-area-inset-bottom)));
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-evenly;
+  gap: clamp(16px, 3.2svh, 30px);
   padding: 16px 0;
 }
 
