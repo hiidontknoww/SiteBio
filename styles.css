@@ -38,15 +38,19 @@ body {
 .page {
   width: 100%;
   max-width: 440px;
+  height: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   animation: page-arrive 760ms var(--ease) both;
 }
 
 .links {
-  min-height: calc(100svh - max(24px, env(safe-area-inset-top)) - max(24px, env(safe-area-inset-bottom)));
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: clamp(16px, 3.2svh, 30px);
   padding: 16px 0;
 }
