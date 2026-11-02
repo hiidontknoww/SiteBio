@@ -13,12 +13,20 @@
 }
 
 html {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: pan-x;
   -webkit-text-size-adjust: 100%;
   background: #ffffff;
 }
 
 body {
+  height: 100svh;
   min-height: 100svh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: pan-x;
   background: #ffffff;
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -31,6 +39,7 @@ body {
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
+  animation: page-arrive 760ms var(--ease) both;
 }
 
 .links {
@@ -56,7 +65,8 @@ body {
   border-radius: 12px;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-  transition: transform .3s var(--ease), border-color .3s ease, background-color .3s ease;
+  transition: transform .38s var(--ease), scale .38s var(--ease), border-color .3s ease, background-color .3s ease;
+  will-change: opacity, transform, translate, scale;
 }
 
 .icon {
@@ -105,7 +115,7 @@ body {
 }
 
 .card:active {
-  transform: scale(.985);
+  scale: .96;
   background: #ffffff;
 }
 
@@ -113,7 +123,7 @@ body {
   .card:hover {
     background: #ffffff;
     border-color: #000000;
-    transform: translateY(-2px);
+    scale: 1.015;
   }
 }
 
@@ -121,16 +131,54 @@ body {
   --entrance-delay: 80ms;
   animation:
     card-reveal 800ms var(--ease) var(--entrance-delay) both,
-    card-float 6s ease-in-out calc(var(--entrance-delay) + 800ms) infinite;
+    card-float 5.2s ease-in-out calc(var(--entrance-delay) + 800ms) infinite;
 }
 
 .card:nth-child(2) { --entrance-delay: 240ms; }
 .card:nth-child(3) { --entrance-delay: 400ms; }
 .card:nth-child(4) { --entrance-delay: 560ms; }
+.card:nth-child(5) { --entrance-delay: 720ms; }
+
+@keyframes page-arrive {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes page-exit {
+  to { opacity: 0; transform: scale(.985); filter: blur(3px); }
+}
 
 @keyframes card-reveal {
-  from { opacity: 0; scale: .985; translate: 0 14px; }
-  to { opacity: 1; scale: 1; translate: 0 0; }
+  from { opacity: 0; transform: translateY(18px) scale(.96); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes card-click {
+  0% { scale: 1; }
+  45% { scale: .94; }
+  100% { scale: 1; }
+}
+
+@keyframes card-exit {
+  to { opacity: 0; transform: translateY(10px) scale(.97); filter: blur(3px); }
+}
+
+body.is-leaving .links {
+  animation: page-exit 420ms var(--ease) both;
+}
+
+body.is-leaving .card {
+  animation: card-exit 340ms var(--ease) var(--exit-delay, 0ms) both;
+}
+
+body.is-leaving .card:nth-child(1) { --exit-delay: 0ms; }
+body.is-leaving .card:nth-child(2) { --exit-delay: 45ms; }
+body.is-leaving .card:nth-child(3) { --exit-delay: 90ms; }
+body.is-leaving .card:nth-child(4) { --exit-delay: 135ms; }
+body.is-leaving .card:nth-child(5) { --exit-delay: 180ms; }
+
+.card.is-clicked {
+  animation: card-click 420ms var(--ease) both;
 }
 
 @keyframes card-float {
